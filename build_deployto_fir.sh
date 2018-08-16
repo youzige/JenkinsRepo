@@ -44,7 +44,7 @@ bundleBuildVersion=`/usr/libexec/PlistBuddy -c "Print CFBundleVersion" $infoPlis
 ###############开始编译app
 if $isWorkSpace ; then  #判断编译方式
 echo  "开始编译workspace...."
-xcodebuild archive -workspace $projectName.xcworkspace -scheme $projectName -configuration $buildConfig -archivePath $buildAppToDir
+xcodebuild archive -workspace $projectName.xcworkspace -scheme $projectName -configuration $buildConfig -archivePath $buildAppToDir -allowProvisioningUpdates
 else
 echo  "开始编译target...."
 xcodebuild  -target  $projectName  -configuration $buildConfig clean build SYMROOT=$buildAppToDir
